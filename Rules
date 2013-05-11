@@ -1,27 +1,13 @@
 #!/usr/bin/env ruby
 
-require 'compass'
-Compass.add_project_configuration File.expand_path('../compass_config.rb', __FILE__)
-
 compile '/assets/*/' do
-  if item[:extension] == "scss"
-    filter :erb
-    filter :sass, Compass.sass_engine_options
-  elsif item[:extension] == "js"
-    filter :erb
-    filter :uglify_js
-  else
-    nil
-  end
+  filter :sprockets, {
+    :css_compressor => :scss,
+    :js_compressor  => :uglifier }
 end
 
 route '/assets/*/' do
-  path = item.identifier.chop.gsub(/\/(css|js)\//, "/")
-  if [ 'scss', 'sass' ].include? item[:extension]
-    path + '.css'
-  else
-    path + '.' + item[:extension]
-  end
+  asset_path(item)
 end
 
 compile '*' do
@@ -29,10 +15,9 @@ compile '*' do
     case item[:extension]
     when 'haml'
       filter :haml
-    when 'md'
-      filter :kramdown
     else
       filter :erb
+      filter :kramdown
     end
     layout 'default'
   end
