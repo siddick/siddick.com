@@ -1,25 +1,7 @@
-@import "icon-badge/*.png";
-@include all-icon-badge-sprites;
-
-[class^="icon-badge-"], [class*=" icon-badge-"] {
-  width: 32px;
-  height: 32px;
-}
-
 .social-icons {
-  line-height: 0px;
-  padding: 3px 0px;
+  font-size: 2em;
+  padding-top: 5px;
+  a {
+    text-decoration:none;
+  }
 }
-
-@import "icon-header/*.png";
-@include all-icon-header-sprites;
-
-[class^="icon-header-"], [class*=" icon-header-"] {
-  width: 48px;
-  height: 48px;
-}
-
-[class^="icon-"], [class*=" icon-"] {
-  display: inline-block;
-}
-

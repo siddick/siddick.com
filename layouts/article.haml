@@ -1,0 +1,11 @@
+%article
+  %header
+    .pull-right
+      %span.icon-tag
+      = item[:tags]
+      %span.icon-time
+      = item[:created_at]
+    %h3
+      %span{ :class => "icon-#{item[:icon] || 'calendar'}" }/
+      = link_to item[:title], relative_path_to(item.path)
+  = item.compiled_content

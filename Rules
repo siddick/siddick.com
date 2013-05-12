@@ -3,10 +3,15 @@
 
 preprocess do
   tag_items.each do |tag, items|
-    self.items << Nanoc::Item.new(
-      "",
-      {:tag => tag, :icon => "header-tag", :items => items, :title => tag.humanize},
+    self.items << Nanoc::Item.new( "",
+      {:tag => tag, :icon => "tag", :items => items, :title => tag.humanize},
       "/tags/#{tag}/")
+  end
+  Dir["vendor/assets/font/*"].each do |file|
+    extension = File.extname(file)
+    basename  = "/assets/#{File.basename(file, extension)}/"
+    options   = { :filename => file, :extension => extension.sub(/^\./, ""), :is_hidden => true }
+    self.items << Nanoc::Item.new(file, options, basename, :binary => true)
   end
 end
 
@@ -15,20 +20,28 @@ SprockertsFilertOption = {
   :js_compressor  => :uglifier }
 
 compile '/assets/*/' do
-  unless item.identifier =~ /\/_/
+  unless item.binary? or item.identifier =~ /\/_/
     filter :sprockets, SprockertsFilertOption
   end
 end
 
 route '/assets/*/' do
   unless item.identifier =~ /\/_/
-    asset_path(item)
+    if item.binary?
+      item.identifier.chop + '.' + item[:extension]
+    else
+      asset_path(item)
+    end
   end
 end
 
 compile '/tags/*/' do
   layout 'tag'
   layout 'default'
+end
+
+compile '/sitemap/' do
+  filter :erb
 end
 
 compile '*' do
@@ -45,7 +58,7 @@ compile '*' do
 end
 
 route '*' do
-  if item.binary?
+  if item.binary? or [ 'xml' ].include?(item[:extension])
     item.identifier.chop + '.' + item[:extension]
   else
     item.identifier + 'index.html'

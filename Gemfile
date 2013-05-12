@@ -7,11 +7,12 @@ gem 'activesupport', :require => 'active_support/all'
 
 # Format
 gem 'haml'
+gem 'sass'
 gem 'kramdown'
+gem 'builder'
 
 # Assets
 gem 'uglifier'
-gem 'sass'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
 gem 'nanoc-sprockets-filter'

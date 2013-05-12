@@ -1,6 +1,6 @@
 ---
 title: Hello World
-icon: header-article
+icon: film
 kind: article
 created_at: 12 May 2013
 tags: test, code
