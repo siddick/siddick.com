@@ -3,6 +3,7 @@ source "https://rubygems.org"
 
 gem 'nanoc'
 gem 'nanoc-toolbox', :require => 'nanoc/toolbox'
+gem 'activesupport', :require => 'active_support/all'
 
 # Format
 gem 'haml'
@@ -14,7 +15,6 @@ gem 'sass'
 gem 'sprockets-sass'
 gem 'sprockets-helpers'
 gem 'nanoc-sprockets-filter'
-
 gem 'compass'
 
 # Misc

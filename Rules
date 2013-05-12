@@ -1,13 +1,19 @@
 #!/usr/bin/env ruby
 
+SprockertsFilertOption = {
+  :css_compressor => :scss,
+  :js_compressor  => :uglifier }
+
 compile '/assets/*/' do
-  filter :sprockets, {
-    :css_compressor => :scss,
-    :js_compressor  => :uglifier }
+  unless item.identifier =~ /\/_/
+    filter :sprockets, SprockertsFilertOption
+  end
 end
 
 route '/assets/*/' do
-  asset_path(item)
+  unless item.identifier =~ /\/_/
+    asset_path(item)
+  end
 end
 
 compile '*' do
