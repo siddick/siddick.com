@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %title A Brand New nanoc Site - #{@item[:title]}
-    %link{:href => asset_path("application.css"), :rel => "stylesheet"}/
+    %link{:href => relative_path_to(asset_path("application.css")), :rel => "stylesheet"}/
   %body
     #main
       = yield
