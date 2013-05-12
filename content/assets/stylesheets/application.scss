@@ -1,1 +1,9 @@
 //= include bootstrap.css
+
+@import "icon-badge/*.png";
+@include all-icon-badge-sprites;
+
+.icon-badge {
+  width: 32px;
+  height: 32px;
+}

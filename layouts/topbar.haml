@@ -1,0 +1,14 @@
+.navbar.navbar-static-top
+  .navbar-inner
+    .container
+      %a.brand{:href => "/", :title => "Siddick"} Si
+      .social-icons.pull-right.btn-group
+        = render "badges"
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .nav-collapse.collapse
+        %ul.nav
+          = li_link_to "Home",  "/"
+          = li_link_to "About", "/about"
