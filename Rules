@@ -1,5 +1,15 @@
 #!/usr/bin/env ruby
 
+
+preprocess do
+  tag_items.each do |tag, items|
+    self.items << Nanoc::Item.new(
+      "",
+      {:tag => tag, :icon => "header-tag", :items => items, :title => tag.humanize},
+      "/tags/#{tag}/")
+  end
+end
+
 SprockertsFilertOption = {
   :css_compressor => :scss,
   :js_compressor  => :uglifier }
@@ -14,6 +24,11 @@ route '/assets/*/' do
   unless item.identifier =~ /\/_/
     asset_path(item)
   end
+end
+
+compile '/tags/*/' do
+  layout 'tag'
+  layout 'default'
 end
 
 compile '*' do

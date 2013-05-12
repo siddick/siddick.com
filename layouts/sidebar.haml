@@ -1,0 +1,3 @@
+%ul.nav.nav-list
+  - tag_items.each do |tag, items|
+    = li_link_to("#{tag}(#{items.count})", "/tags/#{tag}/")

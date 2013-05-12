@@ -1,0 +1,5 @@
+- item[:items].each do |item|
+  %article
+    %header
+      %h3= link_to item[:title], relative_path_to(item.path)
+    = item.compiled_content

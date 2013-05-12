@@ -6,6 +6,7 @@ Compass.configuration do |compass|
   compass.project_path  = "."
   compass.sass_dir      = "content/assets/stylesheets"
   compass.images_dir    = "vendor/assets/images"
+  compass.fonts_dir     = "vendor/assets/font"
 
   compass.generated_images_dir  = "output/assets"
   compass.css_dir               = "output/assets"
@@ -22,7 +23,8 @@ end
 include Nanoc::Helpers::Rendering
 include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Sprockets
-include Nanoc::Toolbox::Helpers::HtmlTag
 include Nanoc::Helpers::Blogging
-include Nanoc::Helpers::Tagging
+include Nanoc::Helpers::XMLSitemap
+
+include Nanoc::Toolbox::Helpers::HtmlTag
 include Nanoc::Toolbox::Helpers::Gravatar
