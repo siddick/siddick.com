@@ -1,8 +1,7 @@
 %article
   %header
     .pull-right
-      %span.icon-tag
-      = item[:tags]
+      = tag_links(item[:tags])
       %span.icon-time
       = item[:created_at]
     %h4
