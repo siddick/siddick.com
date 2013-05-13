@@ -2,10 +2,16 @@
 
 
 preprocess do
+  # Index page for all articles
+  create_article_items(self.items, "/", :icon => "home", :title => "Home")
+
+  # Pages for tags
   tag_items.each do |tag, items|
     options = { :tag => tag, :icon => "tags", :title => tag.humanize }
     create_article_items(items, "/tags/#{tag}/", options)
   end
+
+  # Copy assets
   Dir["vendor/assets/font/*"].each do |file|
     create_asset_item(file)
   end
