@@ -6,6 +6,13 @@
     text-decoration:none;
     &:hover {
       color: #333333;
+
+      .icon-twitter {
+        color: #9AE4E8;
+      }
+      .icon-facebook {
+        color: #3B5998;
+      }
     }
   }
 
