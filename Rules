@@ -51,7 +51,7 @@ compile '*' do
       filter :haml
     else
       filter :erb
-      filter :kramdown
+      filter :kramdown, :enable_coderay => true, :coderay_line_numbers => nil
     end
     layout 'default'
   end
