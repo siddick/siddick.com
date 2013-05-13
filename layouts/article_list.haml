@@ -1,0 +1,13 @@
+- item[:items].each do |item|
+  = render("article", :item => item)
+%ul.pager
+  - if item[:prev_page]
+    %li.previous
+      %a{:href => relative_path_to(item[:prev_page]) }
+        %span.icon-double-angle-left
+        Older
+  - if item[:next_page]
+    %li.next
+      %a{:href => relative_path_to(item[:next_page]) }
+        Newer
+        %span.icon-double-angle-right

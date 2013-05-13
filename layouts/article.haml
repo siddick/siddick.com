@@ -6,6 +6,6 @@
       %span.icon-time
       = item[:created_at]
     %h4
-      %span{ :class => "icon-#{item[:icon] || 'calendar'}" }/
+      %span{ :class => "icon-#{item[:icon] || 'calendar'}" }
       = link_to item[:title], relative_path_to(item.path)
   = find_and_preserve(item.compiled_content)

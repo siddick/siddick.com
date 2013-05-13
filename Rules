@@ -3,12 +3,11 @@
 
 preprocess do
   tag_items.each do |tag, items|
-    self.items << Nanoc::Item.new("",
-      {:tag => tag, :icon => "tag", :items => items, :title => tag.humanize},
-      "/tags/#{tag}/")
+    options = { :tag => tag, :icon => "tags", :title => tag.humanize }
+    create_article_items(items, "/tags/#{tag}/", options)
   end
   Dir["vendor/assets/font/*"].each do |file|
-    self.items << create_asset_item(file)
+    create_asset_item(file)
   end
 end
 
@@ -32,11 +31,6 @@ route '/assets/*/' do
   end
 end
 
-compile '/tags/*/' do
-  layout 'tag'
-  layout 'default'
-end
-
 compile '/sitemap/' do
   filter :erb
 end
@@ -51,6 +45,7 @@ compile '*' do
       filter :kramdown, :enable_coderay => true, :coderay_line_numbers => nil,
         :coderay_css => :class
     end
+    layout item[:layout] if item[:layout]
     layout 'default'
   end
 end
