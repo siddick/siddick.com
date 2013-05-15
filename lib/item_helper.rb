@@ -34,7 +34,7 @@ module ItemHelper
 
   def paginate(items)
     items = items.select{|item| item[:created_at] }.
-      sort_by{|item| Time.parse(item[:created_at]) }
+      sort{|a, b| Time.parse(b[:created_at]) <=> Time.parse(a[:created_at]) }
     list  = []
     until items.empty?
       list << items.slice!(0..(PageLimit - 1))
