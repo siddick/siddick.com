@@ -23,4 +23,5 @@
               = yield
           %aside.span3.sidebar
             = render "sidebar"
-    = render "facebook_js"
+    - if article?
+      = render "facebook_js"
