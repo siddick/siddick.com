@@ -29,3 +29,22 @@ a.logo {
   border-left:  1px solid #EEEEEE;
   border-right: 1px solid #EEEEEE;
 }
+
+.fb-comments, .fb-like-box {
+  width: 100% !important;
+  iframe[style] {
+    width: 100% !important;
+  }
+}
+
+.fb-comments {
+  span, iframe span[style] {
+    width: 100% !important;
+  }
+}
+
+.fb-like-box {
+  span, iframe span[style] {
+    width: 100% !important;
+  }
+}

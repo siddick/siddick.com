@@ -5,6 +5,7 @@ gem 'nanoc'
 gem 'nanoc-toolbox', :require => 'nanoc/toolbox'
 gem 'activesupport', :require => 'active_support/all'
 gem 'coderay'
+gem 'haml-coderay'
 
 # Format
 gem 'haml'

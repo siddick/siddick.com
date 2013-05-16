@@ -14,6 +14,9 @@ Compass.configuration do |compass|
   compass.relative_assets       = true
 end
 
+Haml::Filters::CodeRay.encoder         = :div
+Haml::Filters::CodeRay.encoder_options = { :css => :class }
+
 Nanoc::Helpers::Sprockets.configure do |config|
   config.environment = Nanoc::Filters::Sprockets.environment
   config.prefix = '/assets'
@@ -25,6 +28,7 @@ include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Sprockets
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::XMLSitemap
+include Nanoc::Helpers::Filtering
 
 include Nanoc::Toolbox::Helpers::HtmlTag
 include Nanoc::Toolbox::Helpers::Gravatar

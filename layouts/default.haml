@@ -15,6 +15,12 @@
         = render "page_header"
         .row
           .span9.main
-            = find_and_preserve(yield)
+            - if article?
+              %article
+                = find_and_preserve(yield)
+              = fb_comments
+            - else
+              = yield
           %aside.span3.sidebar
             = render "sidebar"
+    = render "facebook_js"

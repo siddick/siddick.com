@@ -21,6 +21,9 @@ GEM
     fssm (0.2.10)
     haml (4.0.2)
       tilt
+    haml-coderay (0.2.0)
+      coderay
+      haml
     hike (1.2.2)
     i18n (0.6.1)
     jsmin (1.0.1)
@@ -64,6 +67,7 @@ DEPENDENCIES
   coderay
   compass
   haml
+  haml-coderay
   kramdown
   nanoc
   nanoc-sprockets-filter

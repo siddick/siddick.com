@@ -6,6 +6,15 @@ module LinkHelper
     relative_path_to(asset_path(path))
   end
 
+  def article?
+    @item[:kind] == "article"
+  end
+
+  def fb_comments
+    url = "#{@site.config[:base_url]}#{@item.path}"
+    content_tag(:div, "", :class => "fb-comments", :"data-width" => 700, :"data-href" => url )
+  end
+
   def li_link_to(name, path, options = {})
     path = path.sub(/\/?$/,"/")
     class_name = path == @item.identifier ? :active : nil
