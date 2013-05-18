@@ -1,0 +1,6 @@
+---
+title: Siddick Blog
+author_name: siddick
+author_uri: https://github.com/siddick
+---
+<%= atom_feed %>

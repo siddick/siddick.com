@@ -41,6 +41,10 @@ compile '/sitemap/' do
   filter :erb
 end
 
+compile '/feed/' do
+  filter :erb
+end
+
 compile '*' do
   unless item.binary?
     case item[:extension]
