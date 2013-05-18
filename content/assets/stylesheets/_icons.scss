@@ -3,7 +3,7 @@
   padding-top: 5px;
   a {
     color: #aaaaaa;
-    text-decoration:none;
+    text-decoration: none;
     &:hover {
       color: #333333;
 
@@ -32,6 +32,33 @@ body {
   }
   .icon-rss-sign {
     color: #FF9933;
+  }
+}
+.share-to {
+  padding: 10px 15px;
+  a {
+    color: #AAAAAA;
+    text-decoration: none;
+    &:hover {
+      .icon-twitter-sign {
+        color: #9AE4E8;
+      }
+      .icon-facebook-sign {
+        color: #3B5998;
+      }
+      .icon-google-plus-sign {
+        color: #DB4A37;
+      }
+    }
+  }
+  .message {
+    color: #999999;
+    display: none;
+  }
+  &:hover {
+    .message {
+      display: inline;
+    }
   }
 }
 

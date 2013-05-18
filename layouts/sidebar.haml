@@ -6,3 +6,14 @@
   %span.icon-rss-sign.icon-small
   %a{:href => relative_path_to("/feed.xml")}
     Subscribe
+
+- unless @item[:is_hidden]
+  .share-to
+    %a{ :title => "Share", :target => "_blank", :href => "https://twitter.com/share?text=I+like+to+share+the+link&url=#{url_for(@item)}" }
+      %span.icon-twitter-sign.icon-2x
+    %a{ :title => "Share", :target => "_blank", :href => "https://plus.google.com/share?url=#{url_for(@item)}" }
+      %span.icon-google-plus-sign.icon-2x
+    %a{ :title => "Share", :target => "_blank", :href => "http://www.facebook.com/sharer/sharer.php?u=#{url_for(@item)}" }
+      %span.icon-facebook-sign.icon-2x
+    %p
+      %span.message Share this page

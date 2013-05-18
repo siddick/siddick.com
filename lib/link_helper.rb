@@ -15,6 +15,10 @@ module LinkHelper
     content_tag(:div, "", :class => "fb-comments", :"data-width" => 700, :"data-href" => url )
   end
 
+  def url_for(item)
+    "#{@site.config[:base_url]}#{item.path}"
+  end
+
   def li_link_to(name, path, options = {})
     path = path.sub(/\/?$/,"/")
     class_name = path == @item.identifier ? :active : nil
