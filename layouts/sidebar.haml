@@ -1,6 +1,6 @@
 %ul.nav.nav-list
   - tag_items.each do |name, items|
-    = li_link_to("#{name}(#{items.count})", "/tags/#{name}/", :icon => :tags)
+    = li_link_to("#{name}", "/tags/#{name}/", :icon => :tags)
 
 .subscribe
   %span.icon-rss-sign.icon-small
