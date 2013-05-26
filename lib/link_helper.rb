@@ -26,7 +26,7 @@ module LinkHelper
       name = content_tag(:span, "", :class => "icon-#{options.delete(:icon)}") + " " + name
     end
     content_tag(:li,
-      link_to(name, relative_path_to(path)),
+      link_to(name, path),
       { :class => class_name }.merge(options))
   end
 
@@ -34,7 +34,7 @@ module LinkHelper
     if tags
       content_tag(:span, "", :class => "icon-tag") + " " +
         tags.split(Seperator).map do |tag|
-          link_to(tag, relative_path_to("/tags/#{tag}/"))
+          link_to(tag, "/tags/#{tag}/")
         end.join(", ")
     end
   end
