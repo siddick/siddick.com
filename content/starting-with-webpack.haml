@@ -8,7 +8,7 @@ tags: webpack
 
 %ol
   %li
-    %p Create application directory for the webpack project.
+    %p Create application directory for webpack project.
     :coderay
       #!sh
       mkdir app && cd app
@@ -17,8 +17,7 @@ tags: webpack
     :coderay
       #!sh
       npm init --yes
-      npm install webpack webpack-dev-server -g
-      npm install webpack html-webpack-plugin --save-dev
+      npm install webpack webpack-dev-server html-webpack-plugin --save-dev
 
   %li
     %p Create a sample javascript file(<code>app.js</code>)
@@ -45,6 +44,6 @@ tags: webpack
     %p Run Webpack dev server
     :coderay
       #!sh
-      webpack-dev-server --open --inline
+      ./node_modules/.bin/webpack-dev-server --open --inline
   %li
     %p Open the application <a href="http://localhost:8080/">http://localhost:8080/</a>

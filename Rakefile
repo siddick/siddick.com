@@ -1,5 +1,5 @@
 task :compile do
-  system("rm output -r")
+  system("rm output -rf")
   system("npm run-script build && bundle exec nanoc compile")
 end
 
@@ -10,7 +10,7 @@ task :deploy do
   system("npm run-script build && bundle exec nanoc compile")
   Dir.chdir("output") do
       system("git add -A")
-      system("git commit -m 'Added' && git push origin")
+      system("git commit -m 'Deploy new content' && git push origin")
   end
 end
 
