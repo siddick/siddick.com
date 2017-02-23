@@ -2,10 +2,6 @@ module LinkHelper
   include Nanoc::Helpers::LinkTo
   include Nanoc::Toolbox::Helpers::HtmlTag
 
-  def relative_asset_path(path)
-    relative_path_to(asset_path(path))
-  end
-
   def article?
     @item[:kind] == "article"
   end
@@ -23,7 +19,7 @@ module LinkHelper
     path = path.sub(/\/?$/,"/")
     class_name = path == @item.identifier ? :active : nil
     if options[:icon]
-      name = content_tag(:span, "", :class => "icon-#{options.delete(:icon)}") + " " + name
+      name = content_tag(:span, "", :class => "fa fa-#{options.delete(:icon)}") + " " + name
     end
     content_tag(:li,
       link_to(name, path),
@@ -32,7 +28,7 @@ module LinkHelper
 
   def tag_links(tags)
     if tags
-      content_tag(:span, "", :class => "icon-tag") + " " +
+      content_tag(:span, "", :class => "fa fa-tag") + " " +
         tags.split(Seperator).map do |tag|
           link_to(tag, "/tags/#{tag}/")
         end.join(", ")

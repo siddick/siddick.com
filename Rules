@@ -3,38 +3,19 @@
 
 preprocess do
   # Index page for all articles
-  create_article_items(self.items, "/", :icon => "home", :title => "Home")
+  create_article_items(self.items, "/", :icon => nil, :title => "Home")
 
   # Pages for tags
   tag_items.each do |tag, items|
     options = { :tag => tag, :icon => "tags", :title => tag.humanize }
     create_article_items(items, "/tags/#{tag}/", options)
   end
-
-  # Copy assets
-  Dir["vendor/assets/font/*"].each do |file|
-    create_asset_item(file)
-  end
 end
 
-SprockertsFilertOption = {
-  :css_compressor => :scss,
-  :js_compressor  => :uglifier }
-
 compile '/assets/*/' do
-  unless item.binary? or item.identifier =~ /\/_/
-    filter :sprockets, SprockertsFilertOption
-  end
 end
 
 route '/assets/*/' do
-  unless item.identifier =~ /\/_/
-    if item.binary?
-      item.identifier.chop + '.' + item[:extension]
-    else
-      asset_path(item)
-    end
-  end
 end
 
 compile '/sitemap/' do

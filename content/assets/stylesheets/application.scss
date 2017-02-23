@@ -1,5 +1,20 @@
-//= include bootstrap.css
-//= include font-awesome.css
-//= include coderay
-
+// @import "../../../vendor/assets/stylesheets/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "../../../vendor/assets/stylesheets/coderay.scss";
 @import "icons";
+
+.navbar-static-top {
+    margin-bottom: 10px;
+}
+
+.page-header {
+    margin-top: 0px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 960px;
+        margin: 0 auto;
+    }
+}

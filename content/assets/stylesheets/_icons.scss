@@ -7,10 +7,10 @@
     &:hover {
       color: #333333;
 
-      .icon-twitter {
+      .fa-twitter {
         color: #9AE4E8;
       }
-      .icon-facebook {
+      .fa-facebook {
         color: #3B5998;
       }
     }
@@ -30,7 +30,7 @@ body {
   a {
     color: #999999;
   }
-  .icon-rss-sign {
+  .fa-rss-sign {
     color: #FF9933;
   }
 }
@@ -40,13 +40,13 @@ body {
     color: #AAAAAA;
     text-decoration: none;
     &:hover {
-      .icon-twitter-sign {
+      .fa-twitter-sign {
         color: #9AE4E8;
       }
-      .icon-facebook-sign {
+      .fa-facebook-sign {
         color: #3B5998;
       }
-      .icon-google-plus-sign {
+      .fa-google-plus-sign {
         color: #DB4A37;
       }
     }

@@ -5,14 +5,14 @@
     %meta{:"http-equiv" => "Content-Type", "content" => "text/html; charset=utf-8"}/
     %link{:href => "https://plus.google.com/103719245554204460362", :rel => "publisher"}/
     %title #{@item[:title] || @item.identifier} - Siddick
-    %link{:href => asset_path("application.css"), :rel => "stylesheet"}/
+    %link{:href => relative_path_to("/assets/application.css"), :rel => "stylesheet"}/
     /[if lt IE 9]
       %script{:src => "http://html5shiv.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}/
   %body
     %header
       = render "topbar"
     .container
-      .content
+      #content
         = render "page_header"
         - if article?
           %article

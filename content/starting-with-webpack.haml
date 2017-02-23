@@ -1,0 +1,50 @@
+---
+title: Starting with WebPack
+icon: briefcase
+kind: article
+created_at: 22 Feb 2017
+tags: webpack
+---
+
+%ol
+  %li
+    %p Create application directory for the webpack project.
+    :coderay
+      #!sh
+      mkdir app && cd app
+  %li 
+    %p Install dependent node modules
+    :coderay
+      #!sh
+      npm init --yes
+      npm install webpack webpack-dev-server -g
+      npm install webpack html-webpack-plugin --save-dev
+
+  %li
+    %p Create a sample javascript file(<code>app.js</code>)
+    :coderay
+      #!js
+      document.write('<h1>Hello World!</h1>');
+
+  %li
+    %p Create a sample webpack configuration file(<code>webpack.config.js</code>)
+    :coderay
+      #!js
+      var HtmlWebpackPlugin = require('html-webpack-plugin');
+      module.exports = {
+          entry: './app.js',
+          output: {
+              path: (__dirname + '/.build'),
+              filename: 'app.js'
+          },
+          plugins: [
+              new HtmlWebpackPlugin()
+          ]
+      };
+  %li
+    %p Run Webpack dev server
+    :coderay
+      #!sh
+      webpack-dev-server --open --inline
+  %li
+    %p Open the application <a href="http://localhost:8080/">http://localhost:8080/</a>

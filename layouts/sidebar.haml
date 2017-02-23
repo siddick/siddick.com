@@ -1,19 +1,19 @@
 %ul.nav.nav-list
   - tag_items.each do |name, items|
-    = li_link_to("#{name}", "/tags/#{name}/", :icon => :tags)
+    = li_link_to("#{name}", "/tags/#{name}/", :icon => 'fa fa-tags')
 
 .subscribe
-  %span.icon-rss-sign.icon-small
+  %span.fa.fa-rss-sign.fa-small
   %a{:href => "/feed.xml"}
     Subscribe
 
 - unless @item[:is_hidden]
   .share-to
     %a{ :title => "Share", :target => "_blank", :href => "https://twitter.com/share?text=I+like+to+share+the+link&url=#{url_for(@item)}" }
-      %span.icon-twitter-sign.icon-2x
+      %span.fa.fa-twitter-sign.fa-2x
     %a{ :title => "Share", :target => "_blank", :href => "https://plus.google.com/share?url=#{url_for(@item)}" }
-      %span.icon-google-plus-sign.icon-2x
+      %span.fa.fa-google-plus-sign.fa-2x
     %a{ :title => "Share", :target => "_blank", :href => "http://www.facebook.com/sharer/sharer.php?u=#{url_for(@item)}" }
-      %span.icon-facebook-sign.icon-2x
+      %span.fa.fa-facebook-sign.fa-2x
     %p
       %span.message Share this page

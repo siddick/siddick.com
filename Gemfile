@@ -9,16 +9,8 @@ gem 'haml-coderay'
 
 # Format
 gem 'haml'
-gem 'sass'
 gem 'kramdown'
 gem 'builder'
-
-# Assets
-gem 'uglifier'
-gem 'sprockets-sass'
-gem 'sprockets-helpers'
-gem 'nanoc-sprockets-filter'
-gem 'compass'
 
 # Misc
 gem 'rake'
