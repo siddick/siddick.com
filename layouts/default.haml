@@ -9,17 +9,31 @@
     /[if lt IE 9]
       %script{:src => "http://html5shiv.googlecode.com/svn/trunk/html5.js", :type => "text/javascript"}/
   %body
-    %header
-      = render "topbar"
     .container
-      #content
-        = render "page_header"
-        - if article?
-          %article
-            = find_and_preserve(yield)
-          = fb_comments
-        - else
-          = yield
+      .row
+        .col-sm-11
+          #content
+            = render "page_header"
+            - if article?
+              %article
+                = find_and_preserve(yield)
+              = fb_comments
+            - else
+              = yield
+        .col-sm-1
+          .social-icons.affix.affix-top
+            .row
+              %a.col-sm-12{:href => "/"}
+                %i.fa.fa-home
+            .row
+              %a.col-sm-12{:href => "https://github.com/siddick"}
+                %span.fa.fa-github
+            .row
+              %a.col-sm-12{:href => "https://twitter.com/2siddick"}
+                %span.fa.fa-twitter
+            .row
+              %a.col-sm-12{:href => "http://www.facebook.com/siddick"}
+                %span.fa.fa-facebook
     - if article?
       = render "facebook_js"
     = render "google_analytics"

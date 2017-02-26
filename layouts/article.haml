@@ -3,7 +3,7 @@
     .pull-right
       = tag_links(item[:tags])
       %span.fa.fa-calendar
-      = item[:created_at]
+      = article_data(item[:created_at])
     %h4
       %span{ :class => "fa fa-#{item[:icon] || 'calendar'}" }
       = link_to item[:title], item.path
