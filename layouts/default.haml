@@ -20,20 +20,19 @@
               = fb_comments
             - else
               = yield
+            - if article?
+              = render "facebook_js"
         .col-sm-1
           .social-icons.affix.affix-top
             .row
               %a.col-sm-12{:href => "/"}
                 %i.fa.fa-home
+          .social-icons.affix.affix-bottom
             .row
               %a.col-sm-12{:href => "https://github.com/siddick"}
                 %span.fa.fa-github
-            .row
               %a.col-sm-12{:href => "https://twitter.com/2siddick"}
                 %span.fa.fa-twitter
-            .row
               %a.col-sm-12{:href => "http://www.facebook.com/siddick"}
                 %span.fa.fa-facebook
-    - if article?
-      = render "facebook_js"
     = render "google_analytics"
